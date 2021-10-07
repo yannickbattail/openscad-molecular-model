@@ -1,13 +1,16 @@
 
+module rHydrogen() {
+    bond(bond_length);
+    translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+}
+
 module Alcohol() {
     Carbon();
     rotate([120,0,120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     rotate([120,0,-120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
 
     // -OH
@@ -16,8 +19,7 @@ module Alcohol() {
         translate([0,0,bond_length+16]) rotate([0,90,180]) {
             rotate([0,90,120]) Oxygen();
             rotate([-90,0,30]) {
-                bond(bond_length);
-                translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+                rHydrogen();
             }
         }
     }
@@ -28,16 +30,13 @@ module Alcohol() {
         Carbon();
 
         rotate([120,0,0]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
         rotate([120,0,120]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
         rotate([120,0,-120]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
     }
 }
@@ -46,21 +45,17 @@ module Methane() {
     Carbon();
 
     rotate([0,0,0]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
 
     rotate([120,0,0]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     rotate([120,0,120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     rotate([120,0,-120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
 }
 
@@ -68,17 +63,14 @@ module Ammonia() {
     Nitrogen();
 
     rotate([120,0,0]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
 
     rotate([120,0,120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     rotate([120,0,-120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
 }
 
@@ -158,8 +150,7 @@ module cyanide() {
     Carbon();
 
     rotate([0,0,0]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
 
     rotate([120,0,0]) {
@@ -197,17 +188,14 @@ module Alkane(i = 8, first = true) {
 
     if (first) { // first has -H
         rotate([120,0,0]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
     }
     rotate([120,0,120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     rotate([120,0,-120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     bond(bond_length);
     i = i - 1;
@@ -224,8 +212,7 @@ module Alkane(i = 8, first = true) {
         }
     } else { // last has -H
         rotate([0,0,0]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
     }
 }
@@ -234,12 +221,10 @@ module Cyclohexane(i = 6) {
     Carbon();
 
     rotate([120,0,120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     rotate([120,0,-120]) {
-        bond(bond_length);
-        translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+        rHydrogen();
     }
     bond(bond_length);
     i = i-1;
@@ -257,16 +242,13 @@ module CH3() {
         Carbon();
 
         rotate([120,0,0]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
         rotate([120,0,120]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
         rotate([120,0,-120]) {
-            bond(bond_length);
-            translate([0,0,bond_length+16]) rotate([0,180,0]) Hydrogen();
+            rHydrogen();
         }
     }
 }
