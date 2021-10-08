@@ -2,8 +2,8 @@
 
 mkdir -p ./stl/
 
-#pieces_list="all Hydrogen Chlorine Oxygen Sulfur Nitrogen Carbon bond_end bond Alcohol Methane Ammonia Carbon_dioxide cyanide Alkane Cyclohexane 22dimethylpropane"
 pieces_list="Hydrogen Oxygen Nitrogen Carbon bond_end"
+#pieces_list="all Hydrogen Chlorine Oxygen Sulfur Nitrogen Carbon bond_end bond Alcohol Methane Ammonia Carbon_dioxide cyanide Alkane Cyclohexane 22dimethylpropane"
 for piece in $pieces_list
 do
     echo generating $piece ...
