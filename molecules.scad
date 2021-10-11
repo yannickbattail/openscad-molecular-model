@@ -47,7 +47,6 @@ module Methane() {
     rotate([0,0,0]) {
         rHydrogen();
     }
-
     rotate([120,0,0]) {
         rHydrogen();
     }
@@ -75,11 +74,12 @@ module Ammonia() {
 }
 
 module ring(ring_diameter, pipe_diameter, angle=360, angle_start=0) {
-        rotate([0,0,angle_start]) {
-            rotate_extrude(angle=angle)
+    rotate([0,0,angle_start]) {
+        rotate_extrude(angle=angle){
             translate([ring_diameter, 0, 0])
             circle(r = pipe_diameter/2);
         }
+    }
 }
 
 module round_fillament2() {
@@ -90,7 +90,7 @@ module round_fillament2() {
     }
 }
 
-module oxide_bound() {
+module oxide_bond() {
     rotate([120,0,0]) {
         translate([0,0,8]) bond_end();
     }
@@ -102,10 +102,10 @@ module oxide() {
     {
         rotate([120,0,0]) Oxygen();
 
-        oxide_bound();
+        oxide_bond();
 
         rotate([0,0,180]) {
-            oxide_bound();
+            oxide_bond();
         }
     }
 }
@@ -184,35 +184,31 @@ module cyanide() {
 }
 
 module Alkane(i = 8, first = true) {
-    Carbon();
+    rotate([120,0,180]){
+        Carbon();
 
-    if (first) { // first has -H
-        rotate([120,0,0]) {
+        if (first) { // first C has a H
+            rotate([120,0,0]) {
+                rHydrogen();
+            }
+        }
+        rotate([120,0,120]) {
             rHydrogen();
         }
-    }
-    rotate([120,0,120]) {
-        rHydrogen();
-    }
-    rotate([120,0,-120]) {
-        rHydrogen();
-    }
-    bond(bond_length);
-    i = i - 1;
-    if (i > 0) {
-        // next CH2-
-        if (i % 2 == 0) {
-            translate([0,0,bond_length+16]) rotate([60,0,180]) {
-                Alkane(i, false);
-            }
-        } else {
+        rotate([120,0,-120]) {
+            rHydrogen();
+        }
+        bond(bond_length);
+        i = i - 1;
+        if (i > 0) {
+            // next CH2-
             translate([0,0,bond_length+16]) rotate([60,0,0]) {
                 Alkane(i, false);
             }
-        }
-    } else { // last has -H
-        rotate([0,0,0]) {
-            rHydrogen();
+        } else { // the last C last has a H
+            rotate([0,0,0]) {
+                rHydrogen();
+            }
         }
     }
 }
