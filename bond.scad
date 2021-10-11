@@ -31,3 +31,19 @@ module bond(h = 24) {
     }
     translate([0,0,h+8]) rotate([0,180,0]) bond_end();
 }
+
+module bond_1part() {
+    bond_end();
+    translate([0,0,15]) rotate([0,180,0]) bond_end();
+}
+
+module bond_short() {
+    color("Silver")
+    translate([0,0,-4]) {
+        if (withThread) {
+            RodStart(4, 0, 8);
+        } else {
+            cylinder(r=2, h=8, center=false);
+        }
+    }
+}

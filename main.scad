@@ -5,7 +5,7 @@ include <molecules.scad>
 $fn=100;
 
 // atome or molecule
-piece = "Alcohol"; // [all:All pieces, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, cyanide:HCN Hydrogen cyanide, Alkane:CH2- Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane]
+piece = "Alcohol"; // [all:All pieces, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane]
 
 // molecular bond with thread
 withThread = false; // [true, false]
@@ -69,3 +69,10 @@ else if (piece == "bond") {
 else if (piece == "bond_end") {
     bond_end();
 }
+else if (piece == "bond_1part") {
+    bond_1part();
+}
+else if (piece == "bond_short") {
+    bond_short();
+}
+

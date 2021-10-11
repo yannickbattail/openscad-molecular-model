@@ -76,12 +76,12 @@ module Carbon() {
 
 module all_pieces() {
 
-    translate([0, 0,0]) Hydrogen();
+    translate([0, 0, 0]) Hydrogen();
     translate([0, 0,20]) Chlorine();
-    translate([0,20,]) Oxygen();
+    translate([0,20, 0]) Oxygen();
     translate([0,20,20]) Sulfur();
-    translate([0,40,0]) Nitrogen();
-    translate([0,60,0]) Carbon();
+    translate([0,40, 0]) Nitrogen();
+    translate([0,60, 0]) Carbon();
 
     rotate([0,0,0]) {
         translate([0,20,36/*28*/]) {
