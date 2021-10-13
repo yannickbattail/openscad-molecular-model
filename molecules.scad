@@ -265,3 +265,60 @@ module TwoTwodimethylpropane(i = 6) {
         CH3();
     }
 }
+
+//1,1-dimethylhydrazine  H2NN(CH3)2
+module Dimethylhydrazine(i = 6) {
+    Nitrogen();
+
+    // -CH3
+    rotate([120,0,0]) {
+        bond(bond_length);
+        translate([0,0,bond_length+16]) rotate([0,180,0]) {
+            Carbon();
+
+            rotate([120,0,0]) {
+                rHydrogen();
+            }
+            rotate([120,0,120]) {
+                rHydrogen();
+            }
+            rotate([120,0,-120]) {
+                rHydrogen();
+            }
+        }
+    }
+    // -CH3
+    rotate([120,0,120]) {
+        bond(bond_length);
+        translate([0,0,bond_length+16]) rotate([0,180,0]) {
+            Carbon();
+
+            rotate([120,0,0]) {
+                rHydrogen();
+            }
+            rotate([120,0,120]) {
+                rHydrogen();
+            }
+            rotate([120,0,-120]) {
+                rHydrogen();
+            }
+        }
+    }
+
+
+    // -NH2
+    rotate([120,0,-120]) {
+        bond(bond_length);
+        translate([0,0,bond_length+16]) rotate([60,0,0]) {
+            Nitrogen();
+
+            rotate([120,0,120]) {
+                rHydrogen();
+            }
+            rotate([120,0,-120]) {
+                rHydrogen();
+            }
+        }
+    }
+}
+
