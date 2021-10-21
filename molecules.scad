@@ -107,6 +107,23 @@ module Carbon_dioxide() {
     }
 }
 
+// CH2O
+module Formaldehyde() {
+    rotate([120,0,0]) { 
+        Carbon();
+        rotate([0,0,0]) {
+            translate([0,0,8]) bond_end();
+        }
+        rotate([120,0,0]) {
+            translate([0,0,8]) bond_end();
+        }
+    }
+    rotate([0,0,90]) oxide();
+    rotate([120,0, 120]) rHydrogen();
+    rotate([120,0,-120]) rHydrogen();
+}
+
+
 module round_fillament3() {
     rotate([60,0,0]) {
         translate([0,4,20]) {
@@ -212,3 +229,11 @@ module Dimethylhydrazine(i = 6) {
     rotate([120,0,-120]) NH2();
 }
 
+// C8H10N4O2 1,3,7-Trimethylxanthine
+module Caffeine(i = 6) {
+    Nitrogen();
+
+    rotate([120,0,   0]) CH3();
+    rotate([120,0, 120]) CH3();
+    rotate([120,0,-120]) NH2();
+}

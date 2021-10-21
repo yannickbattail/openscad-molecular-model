@@ -28,14 +28,17 @@ possibles values:
 - bond_end:bond end
 - bond:Whole bond
 - bond_1part: bond in 1 part
+- bond_short: short bond
 - Alcohol:CH3-CH2-OH Alcohol
 - Methane:CH4 Methane
 - Ammonia:NH3 Ammonia
 - Carbon_dioxide:CO2 Carbon dioxide
+- Formaldehyde:CH2O Formaldehyde
 - cyanide:HCN Hydrogen cyanide
 - Alkane:X(CH2) Alkane
 - Cyclohexane:C6H12 Cyclohexane
 - 22dimethylpropane:C5H12 2,2-dimethylpropane
+- Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
 
 ### withThread
 
