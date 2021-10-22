@@ -40,7 +40,7 @@ possibles values:
 - 22dimethylpropane:C5H12 2,2-dimethylpropane
 - Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
 
-### withThread
+### bond_pin_with_thread
 
 Molecular bond and atomes use threads.
 
@@ -51,9 +51,21 @@ possibles values:
 - true
 - false
 
+### bond_pin_err
+
+Molecular bond pin difference between inset and out set (from 0 to 1)
+
+default value: 0.2
+
+### bond_pin_radius
+
+Molecular bond pin radius (from 0 to 6)
+
+default value: 4
+
 ### bond_length
 
-Bond tength for molecules (from 0 or more)
+Molecular bond length (from 0 or more)
 
 default value: 24
 

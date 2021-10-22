@@ -7,11 +7,7 @@ pieces_list="Hydrogen Oxygen Nitrogen Carbon bond_end bond_1part bond_short"
 for piece in $pieces_list
 do
     echo generating $piece ...
-    openscad -o ./stl/${piece}.stl -D "piece=\"$piece\"" ./main.scad
-done
-
-for piece in $pieces_list
-do
-    echo generating withThread $piece ...
-    openscad -o ./stl/${piece}_withThread.stl -D "piece=\"$piece\"" -D "withThread=true" ./main.scad
+    openscad -q -o ./stl/${piece}.stl -D "piece=\"$piece\"" ./main.scad
+    echo generating $piece with thread ...
+    openscad -q -o ./stl/${piece}_with_thread.stl -D "piece=\"$piece\"" -D "bond_pin_with_thread=true" ./main.scad
 done

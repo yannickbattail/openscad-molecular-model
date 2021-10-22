@@ -8,10 +8,10 @@ module bond_end() {
                     cylinder(h=7,r1=6,r2=2,center=false);
                 }
                 translate([0,0,-4]) {
-                    if (withThread) {
-                        RodStart(4, 0, 4);
+                    if (bond_pin_with_thread) {
+                        RodStart(bond_pin_radius*2 - bond_pin_err, 0, 4);
                     } else {
-                        cylinder(r=2, h=4, center=false);
+                        cylinder(r=bond_pin_radius - bond_pin_err, h=4, center=false);
                     }
                 }
             }
@@ -40,10 +40,10 @@ module bond_1part() {
 module bond_short() {
     color("Silver")
     translate([0,0,-4]) {
-        if (withThread) {
-            RodStart(4, 0, 8);
+        if (bond_pin_with_thread) {
+            RodStart(bond_pin_radius*2 - bond_pin_err, 0, 8);
         } else {
-            cylinder(r=2, h=8, center=false);
+            cylinder(r=bond_pin_radius - bond_pin_err, h=8, center=false);
         }
     }
 }

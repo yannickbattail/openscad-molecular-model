@@ -6,5 +6,5 @@ pieces_list="all Hydrogen Chlorine Oxygen Sulfur Nitrogen Carbon bond_end bond b
 for piece in $pieces_list
 do
     echo generating $piece ...
-    openscad -o ./images/${piece}.png -D "piece=\"$piece\"" ./main.scad
+    openscad -q -o ./images/${piece}.png -D "piece=\"$piece\"" ./main.scad
 done
