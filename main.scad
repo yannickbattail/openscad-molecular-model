@@ -30,6 +30,9 @@ fillament_diameter = 1.75; // [0.05:0.01:5]
 
 /* [Animation] */
 
+// Animation rotation
+animation_rotation = false;
+
 // Animate bond length
 annimate_bond_length = false;
 
@@ -38,12 +41,15 @@ annimate_number_of_C = false;
 
 /* [Hidden] */
 $fn=100;
-$vpt = [4, 3, 15];
-$vpr = [60, 0, 35];
-$vpd = 500;
 
 number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
+
+
+
+$vpt = [4, 3, 15];
+$vpr = animation_rotation?[60, 0, 365 * $t]:[60, 0, 0];
+$vpd = 500;
 
 if (piece == "all") {
     all_pieces();
