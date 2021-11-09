@@ -4,14 +4,11 @@ module bond_end() {
         difference() {
             union () {
                 cylinder(h=1,r1=5,r2=6,center=false);
-                translate([0,0,1]) {
-                    cylinder(h=7,r1=6,r2=2,center=false);
-                }
-                translate([0,0,-4]) {
-                    bond_pin();
-                }
+                translate([0,0,1]) cylinder(h=7,r1=6,r2=2,center=false);
+                translate([0,0,-bond_pin_length]) bond_pin();
             }
-            cylinder(h=8,r=fillament_diameter/2,center=false);
+            // fillament hole
+            translate([0,0,1+epsi]) cylinder(h=7,r=fillament_diameter/2,center=false);
         }
     }
 }
@@ -23,10 +20,14 @@ module bond_pin() {
         difference() {
             union() {
                 cylinder(r=radius, h=bond_pin_length, center=false);
-                //translate([0,0,0]) cylinder(r=radius + bond_pin_stop, h=0.5, center=false);
                 translate([0,0,bond_pin_stop])ring(radius, bond_pin_stop*2);
             }
-            translate([0,0,bond_pin_length/2]) cube([bond_pin_split,(radius+bond_pin_stop)*2,bond_pin_length], center=true);
+            // bon split
+            translate([0,0,bond_pin_length/2]) cube([bond_pin_split,(radius+bond_pin_stop)*2,bond_pin_length+epsi*2], center=true);
+            // troncate bond_pin_stop
+            translate([0,radius+bond_pin_stop/2,bond_pin_length/2]) cube([(radius+bond_pin_stop)*2,bond_pin_stop,bond_pin_length], center=true);
+            translate([0,-radius-bond_pin_stop/2,bond_pin_length/2]) cube([(radius+bond_pin_stop)*2,bond_pin_stop,bond_pin_length], center=true);
+
         }
     } else {
         cylinder(r=bond_pin_radius - bond_pin_err, h=bond_pin_length, center=false);

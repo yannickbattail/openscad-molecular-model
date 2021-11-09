@@ -14,10 +14,10 @@ number_of_carbon = 6;  // [1:20]
 /* [Molecular bond] */
 
 // molecular bond with clip
-bond_pin_with_thread = false; // [true, false]
+bond_pin_with_thread = true; // [true, false]
 
 // Molecular bond pin radius
-bond_pin_radius = 6; // [1:0.5:6]
+bond_pin_radius = 2.5; // [1:0.5:3.5]
 
 // Molecular bond pin length
 bond_pin_length=4; // [1:0.5:5]
@@ -53,7 +53,7 @@ $fn=100;
 
 number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
-
+epsi=0.001; // epsilon constant
 
 $vpt = [4, 3, 15];
 $vpr = animation_rotation?[60, 0, 365 * $t]:[60, 0, 0];
