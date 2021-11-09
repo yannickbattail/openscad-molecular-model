@@ -5,8 +5,10 @@ module hole() {
     }
     translate([0,0,4]) {
         if (bond_pin_with_thread) {
+            cylinder(r=bond_pin_radius, h=4, center=false);
+            cylinder(r=bond_pin_radius+bond_pin_stop, h=bond_pin_stop*2, center=false);
             //RodEnd(bond_pin_radius*2, 4, 4);
-            RodStart(bond_pin_radius*2, 0, 4);
+            //RodStart(bond_pin_radius*2, 0, 4);
         } else {
             cylinder(r=bond_pin_radius, h=4, center=false);
         }

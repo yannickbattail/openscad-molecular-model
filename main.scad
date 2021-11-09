@@ -13,14 +13,23 @@ number_of_carbon = 6;  // [1:20]
 
 /* [Molecular bond] */
 
-// molecular bond with thread
+// molecular bond with clip
 bond_pin_with_thread = false; // [true, false]
-
-// Molecular bond pin difference between inset and out set
-bond_pin_err = 0.2; // [0:0.05:1]
 
 // Molecular bond pin radius
 bond_pin_radius = 6; // [1:0.5:6]
+
+// Molecular bond pin length
+bond_pin_length=4; // [1:0.5:5]
+
+// Molecular bond pin torus size at the end of the pin
+bond_pin_stop = 0.5; // [0:0.05:1]
+
+// Molecular bond pin split thickness
+bond_pin_split = 1; // [0:0.1:3]
+
+// Molecular bond pin difference between inset and outset
+bond_pin_err = 0.2; // [0:0.05:1]
 
 // Molecular bond length
 molecular_bond_length = 26; // [0:100]
@@ -44,7 +53,6 @@ $fn=100;
 
 number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
-
 
 
 $vpt = [4, 3, 15];
