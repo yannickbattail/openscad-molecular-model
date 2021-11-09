@@ -6,8 +6,6 @@ Print 2 bond_end and glue a piece of filament to link them.
 
 You can change the variable `fillament_diameter`, if you want to use an iron wire instead of filament.
 
-*Note: the threads doen't work for now.*
-
 ## Customizer variables
 
 ### piece
@@ -40,11 +38,11 @@ possibles values:
 - 22dimethylpropane:C5H12 2,2-dimethylpropane
 - Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
 
-### bond_pin_with_thread
+### bond_pin_with_clip
 
-Molecular bond and atomes use threads.
+Molecular bond and atomes use clip.
 
-default value: false
+default value: true
 
 possibles values:
 

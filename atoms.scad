@@ -2,7 +2,7 @@
 module hole() {
     translate([0,0,18]) cube(20, center=true);
     translate([0,0,4+epsi]) {
-        if (bond_pin_with_thread) {
+        if (bond_pin_with_clip) {
             cylinder(r=bond_pin_radius, h=4, center=false);
             cylinder(r=bond_pin_radius+bond_pin_stop, h=bond_pin_stop*2, center=false);
         } else {

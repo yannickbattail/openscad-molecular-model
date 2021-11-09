@@ -16,7 +16,7 @@ module bond_end() {
 
 module bond_pin() {
     radius=bond_pin_radius - bond_pin_err;
-    if (bond_pin_with_thread) {
+    if (bond_pin_with_clip) {
         difference() {
             union() {
                 cylinder(r=radius, h=bond_pin_length, center=false);

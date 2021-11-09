@@ -1,4 +1,3 @@
-include <threads.scad>
 include <atoms.scad>
 include <bond.scad>
 include <molecules.scad>
@@ -14,7 +13,7 @@ number_of_carbon = 6;  // [1:20]
 /* [Molecular bond] */
 
 // molecular bond with clip
-bond_pin_with_thread = true; // [true, false]
+bond_pin_with_clip = true; // [true, false]
 
 // Molecular bond pin radius
 bond_pin_radius = 2.5; // [1:0.5:3.5]
