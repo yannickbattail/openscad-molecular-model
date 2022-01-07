@@ -54,9 +54,9 @@ number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
 epsi=0.001; // epsilon constant
 
-$vpt = [4, 3, 15];
-$vpr = animation_rotation?[60, 0, 365 * $t]:[60, 0, 0];
-$vpd = 500;
+$vpt = animation_rotation?[4, 3, 15]:$vpt;
+$vpr = animation_rotation?[60, 0, 365 * $t]:$vpr;
+$vpd = animation_rotation?500:$vpd;
 
 if (piece == "all") {
     all_pieces();
