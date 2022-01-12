@@ -26,7 +26,7 @@ module _half_spheres(top_color, bottom_color) {
         color(top_color) sphere(r=10);
         translate([0,0,-5]) cube(size=[20, 20, 10], center=true);
     }
-    translate([0,0,-0.1])
+    translate([0,0,-0.1]) // workaround for the color
     difference() {
         color(bottom_color) sphere(r=10);
         translate([0,0, 5]) cube(size=[20, 20, 10], center=true);
