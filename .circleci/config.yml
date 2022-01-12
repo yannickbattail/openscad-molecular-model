@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "generate image anim and stl"
-          command: "./ci.sh"
+          command: "chmod +x ./ci.sh && ./ci.sh"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
