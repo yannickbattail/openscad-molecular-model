@@ -5,7 +5,7 @@ include <molecules.scad>
 /* [parameters] */
 
 // atome or molecule
-piece = "Alcohol"; // [all:All pieces, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, Formaldehyde:CH2O Formaldehyde, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane, Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
+piece = "Alcohol";// [all:All pieces, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, Formaldehyde:CH2O Formaldehyde, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane, Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
 
 // Number of carbon for Alkane
 number_of_carbon = 6;  // [1:20]
@@ -19,7 +19,7 @@ bond_pin_with_clip = true; // [true, false]
 bond_pin_radius = 2.5; // [1:0.5:3.5]
 
 // Molecular bond pin length
-bond_pin_length=4; // [1:0.5:5]
+bond_pin_length = 4; // [1:0.5:5]
 
 // Molecular bond pin torus size at the end of the pin
 bond_pin_stop = 0.5; // [0:0.05:1]
@@ -48,11 +48,11 @@ annimate_bond_length = false;
 annimate_number_of_C = false;
 
 /* [Hidden] */
-$fn=100;
+$fn = 100;
 
 number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
-epsi=0.001; // epsilon constant
+epsi = 0.001; // epsilon constant
 
 $vpt = animation_rotation?[4, 3, 15]:$vpt;
 $vpr = animation_rotation?[60, 0, 365 * $t]:$vpr;
