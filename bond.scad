@@ -22,10 +22,13 @@ module bond_pin() {
                 translate([0, 0, bond_pin_stop])ring(radius, bond_pin_stop * 2);
             }
             // bon split
-            translate([0, 0, bond_pin_length / 2]) cube([bond_pin_split, (radius + bond_pin_stop) * 2, bond_pin_length + epsi * 2], center = true);
+            translate([0, 0, bond_pin_length / 2]) cube([bond_pin_split, (radius + bond_pin_stop) * 2, bond_pin_length +
+                    epsi * 2], center = true);
             // troncate bond_pin_stop
-            translate([0,  radius + bond_pin_stop / 2, bond_pin_length / 2]) cube([(radius + bond_pin_stop) * 2, bond_pin_stop, bond_pin_length], center = true);
-            translate([0, -radius - bond_pin_stop / 2, bond_pin_length / 2]) cube([(radius + bond_pin_stop) * 2, bond_pin_stop, bond_pin_length], center = true);
+            translate([0, radius + bond_pin_stop / 2, bond_pin_length / 2]) cube([(radius + bond_pin_stop) * 2,
+                bond_pin_stop, bond_pin_length], center = true);
+            translate([0, - radius - bond_pin_stop / 2, bond_pin_length / 2]) cube([(radius + bond_pin_stop) * 2,
+                bond_pin_stop, bond_pin_length], center = true);
 
         }
     } else {

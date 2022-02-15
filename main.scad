@@ -1,11 +1,13 @@
 include <atoms.scad>
 include <bond.scad>
 include <molecules.scad>
+include <new_molecules.scad>
 
 /* [parameters] */
 
 // atome or molecule
-part = "Alcohol";// [all:All parts, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, Formaldehyde:CH2O Formaldehyde, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane, Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
+part = "Alcohol";
+// [all:All parts, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, Formaldehyde:CH2O Formaldehyde, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane, Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
 
 // Number of carbon for Alkane
 number_of_carbon = 6;  // [1:20]
@@ -48,7 +50,7 @@ annimate_bond_length = false;
 annimate_number_of_C = false;
 
 /* [Hidden] */
-$fn = 100;
+//$fn = 100;
 
 number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
@@ -127,14 +129,14 @@ else if (part == "bond_short") {
 
 module all_parts() {
     translate([0, 0, 0]) Hydrogen();
-    translate([0, 0,25]) Chlorine();
-    translate([0,25, 0]) Oxygen();
-    translate([0,25,25]) Sulfur();
-    translate([0,50, 0]) Nitrogen();
-    translate([0,75, 0]) Carbon();
+    translate([0, 0, 25]) Chlorine();
+    translate([0, 25, 0]) Oxygen();
+    translate([0, 25, 25]) Sulfur();
+    translate([0, 50, 0]) Nitrogen();
+    translate([0, 75, 0]) Carbon();
 
-    translate([0,0, 45]) bond_end();
-    translate([0,25,45]) bond_short();
-    translate([0,50,12]) bond(bond_length);
-    translate([0,75,20]) bond_1part();
+    translate([0, 0, 45]) bond_end();
+    translate([0, 25, 45]) bond_short();
+    translate([0, 50, 12]) bond(bond_length);
+    translate([0, 75, 20]) bond_1part();
 }
