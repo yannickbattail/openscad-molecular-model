@@ -85,7 +85,8 @@ Note: the greater, the longer the render will be.
 
 ### concat_files.sh
 
-Concat all *.scad file in one file to be used in Thingivers [Customizer](https://www.thingiverse.com/apps/customizer/run?thing_id=4982157).
+Concat all *.scad file in one file to be used in
+Thingivers [Customizer](https://www.thingiverse.com/apps/customizer/run?thing_id=4982157).
 
 ```bash
 ./concat_files.sh

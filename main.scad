@@ -5,7 +5,7 @@ include <molecules.scad>
 /* [parameters] */
 
 // atome or molecule
-piece = "Alcohol"; // [all:All pieces, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, Formaldehyde:CH2O Formaldehyde, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane, Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
+part = "Alcohol";// [all:All parts, Hydrogen:H Hydrogen, Chlorine:Cl Chlorine, Oxygen:O Oxygen, Sulfur:S Sulfur, Nitrogen:N Nitrogen, Carbon:C Carbon, bond_end:bond end, bond:Whole bond, bond_1part: bond in 1 part,bond_short:short bond, Alcohol:CH3-CH2-OH Alcohol, Methane:CH4 Methane, Ammonia:NH3 Ammonia, Carbon_dioxide:CO2 Carbon dioxide, Formaldehyde:CH2O Formaldehyde, cyanide:HCN Hydrogen cyanide, Alkane:X(CH2) Alkane, Cyclohexane:C6H12 Cyclohexane, 22dimethylpropane:C5H12 2.2-dimethylpropane, Dimethylhydrazine:H2NN(CH3)2 1.1-dimethylhydrazine]
 
 // Number of carbon for Alkane
 number_of_carbon = 6;  // [1:20]
@@ -19,7 +19,7 @@ bond_pin_with_clip = true; // [true, false]
 bond_pin_radius = 2.5; // [1:0.5:3.5]
 
 // Molecular bond pin length
-bond_pin_length=4; // [1:0.5:5]
+bond_pin_length = 4; // [1:0.5:5]
 
 // Molecular bond pin torus size at the end of the pin
 bond_pin_stop = 0.5; // [0:0.05:1]
@@ -48,84 +48,84 @@ annimate_bond_length = false;
 annimate_number_of_C = false;
 
 /* [Hidden] */
-$fn=100;
+$fn = 100;
 
 number_of_C = annimate_number_of_C?round($t * 10):number_of_carbon;
 bond_length = annimate_bond_length?round($t * 50):molecular_bond_length;
-epsi=0.001; // epsilon constant
+epsi = 0.001; // epsilon constant
 
-$vpt = [4, 3, 15];
-$vpr = animation_rotation?[60, 0, 365 * $t]:[60, 0, 0];
-$vpd = 500;
+$vpt = animation_rotation?[4, 3, 15]:$vpt;
+$vpr = animation_rotation?[60, 0, 365 * $t]:$vpr;
+$vpd = animation_rotation?500:$vpd;
 
-if (piece == "all") {
-    all_pieces();
+if (part == "all") {
+    all_parts();
 }
 // molecules
-else if (piece == "Alcohol") {
+else if (part == "Alcohol") {
     Alcohol();
 }
-else if (piece == "Methane") {
+else if (part == "Methane") {
     Methane();
 }
-else if (piece == "Ammonia") {
+else if (part == "Ammonia") {
     Ammonia();
 }
-else if (piece == "Carbon_dioxide") {
+else if (part == "Carbon_dioxide") {
     Carbon_dioxide();
 }
-else if (piece == "Formaldehyde") {
+else if (part == "Formaldehyde") {
     Formaldehyde();
 }
-else if (piece == "cyanide") {
+else if (part == "cyanide") {
     cyanide();
 }
-else if (piece == "Alkane") {
+else if (part == "Alkane") {
     Alkane(number_of_C);
 }
-else if (piece == "Cyclohexane") {
+else if (part == "Cyclohexane") {
     Cyclohexane();
 }
-else if (piece == "22dimethylpropane") {
+else if (part == "22dimethylpropane") {
     TwoTwodimethylpropane();
 }
-else if (piece == "Dimethylhydrazine") {
+else if (part == "Dimethylhydrazine") {
     Dimethylhydrazine();
 }
 // atomes
-else if (piece == "Hydrogen") {
+else if (part == "Hydrogen") {
     Hydrogen();
 }
-else if (piece == "Chlorine") {
+else if (part == "Chlorine") {
     color("Green") Chlorine();
 }
-else if (piece == "Oxygen") {
+else if (part == "Oxygen") {
     Oxygen();
 }
-else if (piece == "Sulfur") {
+else if (part == "Sulfur") {
     Sulfur();
 }
-else if (piece == "Nitrogen") {
+else if (part == "Nitrogen") {
     Nitrogen();
 }
-else if (piece == "Carbon") {
+else if (part == "Carbon") {
     Carbon();
 }
 // bonds
-else if (piece == "bond") {
+else if (part == "bond") {
     bond(bond_length);
 }
-else if (piece == "bond_end") {
+else if (part == "bond_end") {
     bond_end();
 }
-else if (piece == "bond_1part") {
+else if (part == "bond_1part") {
     bond_1part();
 }
-else if (piece == "bond_short") {
+else if (part == "bond_short") {
     bond_short();
 }
 
-module all_pieces() {
+module all_parts() {
     translate([0, 0, 0]) Hydrogen();
     translate([0, 0,25]) Chlorine();
     translate([0,25, 0]) Oxygen();
